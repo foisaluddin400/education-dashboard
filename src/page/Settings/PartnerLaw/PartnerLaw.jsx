@@ -5,6 +5,7 @@ import { IoArrowBackSharp } from "react-icons/io5";
 
 import toast from "react-hot-toast";
 import { useGetLawQuery, useUpdateLawMutation } from "../../../redux/Api/privecyApi";
+import { Button, message } from "antd";
 
 const TermsCondition = () => {
   const { data: getTerms } = useGetLawQuery();
@@ -17,9 +18,11 @@ const TermsCondition = () => {
 
   const handleTerms = async () => {
     const description = content;  
+    seLoading(true);
     const res = await addPrivecy({ description }).unwrap();
+    seLoading(false);
     console.log("res", res);
-    toast.success("Privecy Update successfully!");
+    message.success(res?.message || "Privecy Update successfully!");
   };
   const config = {
     readonly: false,
@@ -64,12 +67,13 @@ const TermsCondition = () => {
           onChange={(newContent) => {}}
         />
         <div className="flex items-center justify-center mt-5">
-          <button
+        <Button
             onClick={handleTerms}
             className="bg-black text-white px-4 py-2 rounded-full test"
+            loading={isLoading}
           >
             Save Changes
-          </button>
+          </Button>
         </div>
       </div>
     </>

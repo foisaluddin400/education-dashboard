@@ -51,7 +51,7 @@ const settingApi = baseApi.injectEndpoints({
       getLaw: builder.query({
         query: () => {
           return {
-            url: "/manage/get-privacy-policy",
+            url: "/manage/get-law-form",
             method: "GET",
           };
         },
@@ -60,7 +60,7 @@ const settingApi = baseApi.injectEndpoints({
       updateLaw: builder.mutation({
         query: (data) => {
           return {
-            url: "/manage/add-privacy-policy",
+            url: "/manage/add-law-form",
             method: "POST",
             body: data,
           };
