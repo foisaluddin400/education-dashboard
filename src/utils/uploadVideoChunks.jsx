@@ -18,7 +18,7 @@ export const uploadVideoChunks = async (file, onProgress) => {
 
     try {
       const response = await axios.post(
-        `http://143.110.241.146:9050/upload-video`,
+        `https://san-approve-number-device.trycloudflare.com/upload-video`,
         // `http://192.168.10.11:9000/upload`,
         formData,
         {
